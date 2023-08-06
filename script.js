@@ -1,5 +1,4 @@
 const choices = ["rock", "paper", "scissors"];
-const playerSelection = "paper";
 
 function getComputerChoice() {
     let computerSelection = Math.floor(Math.random() * choices.length);
@@ -10,46 +9,67 @@ function playRound(computerSelection, playerSelection) {
     switch(playerSelection) {
         case "rock":
             if(computerSelection === "rock"){
-                console.log("It's a tie")
+                return "tie";
             }
             else if(computerSelection === "paper"){
-                console.log("You loose!");
+                return "loss";
             }
             else{
-                console.log("You win!");
+                return "win";
             }
-            console.log("computer: " + computerSelection);
-            console.log("player: " + playerSelection);
             break;
         case "paper":
             if(computerSelection === "rock"){
-                console.log("You win!")
+                return "win";
             }
             else if(computerSelection === "paper"){
-                console.log("It's a tie!");
+                return "tie";
             }
             else{
-                console.log("You loose!");
+                return "loss";
             }
-            console.log("computer: " + computerSelection);
-            console.log("player: " + playerSelection);
             break;
         case "scissors":
             if(computerSelection === "rock"){
-                console.log("You loose!")
+                return "loss";
             }
             else if(computerSelection === "paper"){
-                console.log("You win!");
+                return "win";
             }
             else{
-                console.log("It's a tie!");
+                return "tie";
             }
-            console.log("computer: " + computerSelection);
-            console.log("player: " + playerSelection);
             break;
         default:
             break;
     }
 }
 
-playRound(getComputerChoice(), playerSelection);
+function game(){
+    let rounds = 5;
+    let playerScore = 0;
+    let computerScore = 0;
+    let ties = 0;
+
+    for(let i = 0; i < rounds; i++) {
+        console.log("it's round: " + i);
+        let playerSelection = prompt("Please enter: rock, paper or scissors");
+        let outCome = playRound(getComputerChoice(), playerSelection.toLocaleLowerCase());
+
+        if(outCome === "win"){
+            console.log("You are the winner!");
+            playerScore++;
+        }
+        else if(outCome === "loss"){
+            console.log("You've lost!");
+            computerScore++;
+        }
+        else{
+            console.log("It's a tie!")
+            ties++;
+        }
+    }
+    console.log(`The final score is you \n won: ${playerScore} rounds \n lost: ${computerScore} rounds \n tied: ${ties} rounds`)
+}
+
+game();
