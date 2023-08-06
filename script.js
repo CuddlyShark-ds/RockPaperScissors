@@ -45,6 +45,18 @@ function playRound(computerSelection, playerSelection) {
     }
 }
 
+function playerSelection() {
+    let selection = prompt("Please enter: rock, paper or scissors");
+    selection.toLocaleLowerCase();
+
+    if(selection === "rock" || selection === "paper" || selection === "scissors"){
+        return selection;
+    }
+    else{
+        playerSelection();
+    }
+}
+
 function game(){
     let rounds = 5;
     let playerScore = 0;
@@ -53,8 +65,7 @@ function game(){
 
     for(let i = 0; i < rounds; i++) {
         console.log("it's round: " + i);
-        let playerSelection = prompt("Please enter: rock, paper or scissors");
-        let outCome = playRound(getComputerChoice(), playerSelection.toLocaleLowerCase());
+        let outCome = playRound(getComputerChoice(), playerSelection());
 
         if(outCome === "win"){
             console.log("You are the winner!");
