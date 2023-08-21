@@ -3,10 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
     <title>Document</title>
 </head>
 <body>
+    <p class="title">A game of ROCK, PAPER, SCISSORS</p>
+    <div class="gameContainer">
+        <div class="scoreContainer">
+            <p>Player</p>
+            <p class="score" id="playerScore"></p>
+        </div>
+        <button id="btn" onclick="playerSelection('rock')">Rock</button>
+        <button id="btn" onclick="playerSelection('paper')">Paper</button>
+        <button id="btn" onclick="playerSelection('scissors')">Scissors</button>
+        <div class="scoreContainer">
+            <p>Computer</p>
+            <p class="score" id="computerScore"></p>
+        </div>
+    </div>
+    <p class="score" id="tieGames"></p>
+    <div class="score" id="results"></div>
     
 </body>
 </html>

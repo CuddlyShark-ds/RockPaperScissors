@@ -1,0 +1,26 @@
+.title{
+    text-align: center;
+}
+
+button{
+    width: 100px;
+    height: 150px;
+}
+
+.gameContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+}
+
+.score{
+    text-align: center;
+    font-size: large;
+    white-space: pre;
+}
+
+.round{
+    text-align: center;
+    font-size: large;
+}
